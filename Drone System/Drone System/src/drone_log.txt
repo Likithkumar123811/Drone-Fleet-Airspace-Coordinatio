@@ -1,0 +1,61 @@
+hadoop fs -cat /drone/drone_log.txtDrone 1 ENTERED zone
+Drone 2 ENTERED zone
+Drone 3 ENTERED zone
+Drone 1 acquired Zone1
+Drone 1 waiting for Zone2
+Drone 2 acquired Zone2
+Drone 2 waiting for Zone1
+
+--- MUTUAL EXCLUSION TEST ---
+Drone 1 requesting lock
+Drone 1 WAITING for lock
+Drone 1 ENTERED zone
+Only one drone is allowed at a time → Mutual Exclusion
+
+Drone 2 requesting lock
+Drone 2 WAITING for lock
+Drone 2 ENTERED zone
+Only one drone is allowed at a time → Mutual Exclusion
+
+Drone 3 requesting lock
+Drone 3 WAITING for lock
+Drone 3 ENTERED zone
+Only one drone is allowed at a time → Mutual Exclusion
+
+
+--- DEADLOCK TEST ---
+Drone 1 acquiring Zone1
+Drone 1 waiting for Zone2
+Both drones are waiting for each other → DEADLOCK
+Circular wait condition formed → Deadlock
+
+Drone 2 acquiring Zone2
+Drone 2 waiting for Zone1
+Both drones are waiting for each other → DEADLOCK
+Circular wait condition formed → Deadlock
+
+Drone 2 requesting lock
+Drone 2 WAITING for lock
+Drone 2 ENTERED zone
+Only one drone is allowed at a time → Mutual Exclusion
+
+Drone 3 requesting lock
+Drone 3 WAITING for lock
+Drone 3 ENTERED zone
+Only one drone is allowed at a time → Mutual Exclusion
+
+Drone 2 requesting lock
+Drone 2 WAITING for lock
+Drone 2 ENTERED zone
+Only one drone is allowed at a time → Mutual Exclusion
+
+Drone 3 requesting lock
+Drone 3 WAITING for lock
+Drone 3 ENTERED zone
+Only one drone is allowed at a time → Mutual Exclusion
+
+Drone 4 requesting lock
+Drone 4 WAITING for lock
+Drone 4 ENTERED zone
+Only one drone is allowed at a time → Mutual Exclusion
+
